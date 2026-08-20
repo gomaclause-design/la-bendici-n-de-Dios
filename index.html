@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Bendicion de Dios | Valera, Los Sin Techos</title>
+    <title>La Bendición de Dios | Comida Rápida en Valera</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
@@ -36,16 +36,15 @@
         
         .hero { 
             text-align: center; 
-            padding: 5rem 1rem; 
+            padding: 4rem 1rem; 
             background: linear-gradient(180deg, rgba(185, 28, 28, 0.85) 0%, rgba(127, 29, 29, 0.95) 100%), 
                         url('https://images.unsplash.com/photo-1561758033-d89a9ad46330?auto=format&fit=crop&w=1200&q=80') center/cover;
             color: white; 
             box-shadow: inset 0 -10px 20px rgba(0,0,0,0.5);
         }
         .hero h1 { font-size: 2.8rem; margin-bottom: 0.5rem; font-weight: 900; text-shadow: 2px 2px 4px rgba(0,0,0,0.6); }
-        .hero p { font-size: 1.2rem; max-width: 650px; margin: 0 auto 1.5rem; opacity: 0.95; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
-        .location-badge { display: inline-block; background: #eab308; color: #0f172a; padding: 6px 16px; border-radius: 20px; font-weight: 800; font-size: 0.9rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px; }
-        
+        .hero p { font-size: 1.1rem; max-width: 650px; margin: 0 auto 1.5rem; opacity: 0.95; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
+        .location-badge { display: inline-block; background: #eab308; color: #0f172a; padding: 6px 16px; border-radius: 20px; font-weight: 800; font-size: 0.9rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.5px; }
         .schedule-badge { display: inline-block; background: #22c55e; color: white; padding: 6px 16px; border-radius: 20px; font-weight: 800; font-size: 0.85rem; margin-left: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
 
         .btn { padding: 0.8rem 1.8rem; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block; border: none; cursor: pointer; font-size: 0.95rem; transition: transform 0.2s, background-color 0.2s; }
@@ -105,7 +104,7 @@
 <body>
 
     <button class="cart-float-btn" onclick="toggleCartModal()">
-        Ver Carrito <span class="cart-badge" id="cartCount">0</span>
+        🛒 Ver Carrito <span class="cart-badge" id="cartCount">0</span>
     </button>
 
     <div class="cart-modal" id="cartModal">
@@ -124,13 +123,13 @@
 
     <nav>
         <a href="#inicio" class="logo">
-            La Bendicion de Dios
-            <span>LeoAlex - Valera</span>
+            La Bendición de Dios
+            <span>Comida Rápida - Valera</span>
         </a>
         <div class="nav-links">
             <a href="#inicio">Inicio</a>
-            <a href="#menu">Menu</a>
-            <a href="#contacto">Ubicacion</a>
+            <a href="#menu">Menú</a>
+            <a href="#contacto">Ubicación</a>
         </div>
     </nav>
 
@@ -139,16 +138,16 @@
             <span class="location-badge">Valera - Sector Los Sin Techos</span>
             <span class="schedule-badge">Trabajamos todos los días (excepto miércoles)</span>
         </div>
-        <h1 style="margin-top: 10px;">La Bendicion de Dios</h1>
-        <p>Los mejores perros calientes, hamburguesas, pepitos y shawarmas. Agrega lo que quieras al carrito y envianos tu pedido directo a WhatsApp.</p>
-        <a href="#menu" class="btn btn-main">Ver Menu</a>
+        <h1 style="margin-top: 10px;">La Bendición de Dios</h1>
+        <p>Los mejores perros calientes, hamburguesas, pepitos, shawarmas y bebidas. Haz tu pedido directamente a WhatsApp.</p>
+        <a href="#menu" class="btn btn-main">Ver Menú Completo</a>
     </section>
 
     <section class="menu-container" id="menu">
-        <h2 class="section-title">Menu y Precios</h2>
+        <h2 class="section-title">Menú y Precios</h2>
 
         <div class="menu-category">
-            <h3 class="category-title">Perros Calientes</h3>
+            <h3 class="category-title">🌭 Perros Calientes</h3>
             <div class="menu-list">
                 <div class="menu-item">
                     <span class="item-name">2 Perros Calientes Grandes</span>
@@ -182,7 +181,7 @@
         </div>
 
         <div class="menu-category">
-            <h3 class="category-title">Hamburguesas</h3>
+            <h3 class="category-title">🍔 Hamburguesas</h3>
             <div class="menu-list">
                 <div class="menu-item">
                     <span class="item-name">Hamburguesa Sencilla</span>
@@ -209,41 +208,41 @@
         </div>
 
         <div class="menu-category">
-            <h3 class="category-title">Whoppers</h3>
+            <h3 class="category-title">🍔 Whoppers</h3>
             <div class="menu-list">
                 <div class="menu-item">
-                    <span class="item-name">Whopper (1 unidad)</span>
+                    <span class="item-name">Whopper Sencillo (1 unidad)</span>
                     <div class="item-right">
                         <span class="item-price">$1.95</span>
-                        <button class="btn-add" onclick="addToCart('Whopper (1 unidad)', 1.95)">+ Agregar</button>
+                        <button class="btn-add" onclick="addToCart('Whopper Sencillo (1 unidad)', 1.95)">+ Agregar</button>
                     </div>
                 </div>
                 <div class="menu-item">
-                    <span class="item-name">Whoppers (Promocion 2x)</span>
+                    <span class="item-name">Whoppers Sencillos (Promoción 2x)</span>
                     <div class="item-right">
                         <span class="item-price">$3.50</span>
-                        <button class="btn-add" onclick="addToCart('Whoppers (Promo 2x)', 3.50)">+ Agregar</button>
+                        <button class="btn-add" onclick="addToCart('Whoppers Sencillos (Promo 2x)', 3.50)">+ Agregar</button>
                     </div>
                 </div>
                 <div class="menu-item">
-                    <span class="item-name">Whopper Especial / Pollo / Carne</span>
+                    <span class="item-name">Whopper Pollo o Carne (por unidad)</span>
                     <div class="item-right">
                         <span class="item-price">$2.50</span>
-                        <button class="btn-add" onclick="addToCart('Whopper Especial/Pollo/Carne', 2.50)">+ Agregar</button>
+                        <button class="btn-add" onclick="addToCart('Whopper Pollo/Carne (por unidad)', 2.50)">+ Agregar</button>
                     </div>
                 </div>
                 <div class="menu-item">
-                    <span class="item-name">Whopper Mixto</span>
+                    <span class="item-name">Whopper Mixto (por unidad)</span>
                     <div class="item-right">
                         <span class="item-price">$4.50</span>
-                        <button class="btn-add" onclick="addToCart('Whopper Mixto', 4.50)">+ Agregar</button>
+                        <button class="btn-add" onclick="addToCart('Whopper Mixto (por unidad)', 4.50)">+ Agregar</button>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="menu-category">
-            <h3 class="category-title">Pepitos y Shawarmas</h3>
+            <h3 class="category-title">🥙 Pepitos y Shawarmas</h3>
             <div class="menu-list">
                 <div class="menu-item">
                     <span class="item-name">Shawarma Mixto</span>
@@ -262,11 +261,38 @@
             </div>
         </div>
 
+        <div class="menu-category">
+            <h3 class="category-title">🥤 Bebidas y Refrescos</h3>
+            <div class="menu-list">
+                <div class="menu-item">
+                    <span class="item-name">Refresco Bombita</span>
+                    <div class="item-right">
+                        <span class="item-price">$0.90</span>
+                        <button class="btn-add" onclick="addToCart('Refresco Bombita', 0.90)">+ Agregar</button>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <span class="item-name">Refresco 1 Litro</span>
+                    <div class="item-right">
+                        <span class="item-price">$1.30</span>
+                        <button class="btn-add" onclick="addToCart('Refresco 1 Litro', 1.30)">+ Agregar</button>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <span class="item-name">Refresco 1.5 Litros</span>
+                    <div class="item-right">
+                        <span class="item-price">$1.95</span>
+                        <button class="btn-add" onclick="addToCart('Refresco 1.5 Litros', 1.95)">+ Agregar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </section>
 
     <section class="contact-section" id="contacto">
         <div class="contact-container">
-            <h2>Ubicacion y Contacto Directo</h2>
+            <h2>Ubicación y Contacto Directo</h2>
             <div class="location-box">
                 Sector Los Sin Techos, Valera, Edo. Trujillo.
             </div>
@@ -277,39 +303,21 @@
             
             <div class="contact-info">
                 <a class="contact-item" href="https://maps.app.goo.gl/aN3qX5oTNC7WyviV6" target="_blank">
-                    Ver en Google Maps
+                    📍 Ver en Google Maps
                 </a>
                 <a class="contact-item" href="https://wa.me/584264408507" target="_blank">
-                    WhatsApp: +58 426-4408507
-                </a>
-                <a class="contact-item" href="mailto:Leonardo020911@gmail.com">
-                    Leonardo020911@gmail.com
+                    📱 WhatsApp: +58 426-4408507
                 </a>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 La Bendicion de Dios - LeoAlex (Valera, Los Sin Techos).</p>
+        <p>&copy; 2026 La Bendición de Dios - Comida Rápida (Valera, Los Sin Techos).</p>
     </footer>
 
     <script>
         let cart = [];
-        let tasaCambio = 775.34;
-
-        async function obtenerTasaActualizada() {
-            try {
-                const response = await fetch('https://ve.dolarapi.com/v1/dolares/oficial');
-                const data = await response.json();
-                if (data && data.promedio) {
-                    tasaCambio = data.promedio;
-                }
-            } catch (error) {
-                console.log("Usando tasa base:", tasaCambio);
-            }
-        }
-
-        obtenerTasaActualizada();
 
         function addToCart(name, price) {
             const existingIndex = cart.findIndex(item => item.name === name);
@@ -340,7 +348,7 @@
             container.innerHTML = '';
 
             if (cart.length === 0) {
-                container.innerHTML = '<p style="text-align:center; color:#6b7280; padding: 20px 0;">El carrito esta vacio</p>';
+                container.innerHTML = '<p style="text-align:center; color:#6b7280; padding: 20px 0;">El carrito está vacío</p>';
             } else {
                 cart.forEach((item, index) => {
                     totalItems += item.quantity;
@@ -381,25 +389,19 @@
             }
 
             let lines = [];
-            lines.push("Hola, quisiera hacer el siguiente pedido en La Bendicion de Dios (Valera):");
+            lines.push("Hola, quisiera hacer el siguiente pedido en La Bendición de Dios:");
             lines.push("");
 
             let totalPriceUSD = 0;
 
             cart.forEach(item => {
                 const subtotalUSD = item.price * item.quantity;
-                const subtotalBS = subtotalUSD * tasaCambio;
                 totalPriceUSD += subtotalUSD;
-                
-                const bsFormatted = subtotalBS.toLocaleString('es-VE', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-                lines.push(`* ${item.quantity}x ${item.name} - $${subtotalUSD.toFixed(2)} (${bsFormatted} Bs.)`);
+                lines.push(`* ${item.quantity}x ${item.name} - $${subtotalUSD.toFixed(2)}`);
             });
 
-            const totalPriceBS = totalPriceUSD * tasaCambio;
-            const totalBsFormatted = totalPriceBS.toLocaleString('es-VE', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-
             lines.push("");
-            lines.push(`Total a pagar: $${totalPriceUSD.toFixed(2)} / ${totalBsFormatted} Bs.`);
+            lines.push(`Total a pagar: $${totalPriceUSD.toFixed(2)}`);
 
             const fullText = lines.join("\n");
             const phone = "584264408507";
