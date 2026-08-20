@@ -6,61 +6,97 @@
     <title>La Bendicion de Dios | Valera, Los Sin Techos</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: system-ui, -apple-system, sans-serif; color: #2d3748; line-height: 1.6; background-color: #fefce8; padding-bottom: 120px; }
         
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
-        .logo { font-weight: 800; font-size: 1.4rem; color: #dc2626; letter-spacing: -0.5px; text-decoration: none; }
-        .logo span { font-size: 0.85rem; color: #d97706; font-weight: bold; display: block; margin-top: -4px; }
-        .nav-links a { margin-left: 1.5rem; text-decoration: none; color: #4a5568; font-weight: 600; }
-        .nav-links a:hover { color: #dc2626; }
+        body { 
+            font-family: system-ui, -apple-system, sans-serif; 
+            color: #1f2937; 
+            line-height: 1.6; 
+            background: linear-gradient(rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.92)), 
+                        url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80') center/cover fixed;
+            padding-bottom: 120px; 
+        }
         
-        .hero { text-align: center; padding: 4rem 1rem; background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); color: white; }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; font-weight: 800; }
-        .hero p { font-size: 1.15rem; max-width: 650px; margin: 0 auto 1.5rem; opacity: 0.95; }
-        .location-badge { display: inline-block; background: #f59e0b; color: #1e293b; padding: 4px 12px; border-radius: 20px; font-weight: bold; font-size: 0.9rem; margin-bottom: 1rem; }
+        nav { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 1rem 5%; 
+            background: rgba(15, 23, 42, 0.95); 
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4); 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+            border-bottom: 2px solid #eab308;
+        }
+        .logo { font-weight: 800; font-size: 1.4rem; color: #ef4444; letter-spacing: -0.5px; text-decoration: none; }
+        .logo span { font-size: 0.85rem; color: #eab308; font-weight: bold; display: block; margin-top: -4px; }
+        .nav-links a { margin-left: 1.5rem; text-decoration: none; color: #f3f4f6; font-weight: 600; transition: color 0.2s; }
+        .nav-links a:hover { color: #eab308; }
         
-        .btn { padding: 0.8rem 1.8rem; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block; border: none; cursor: pointer; font-size: 0.95rem; }
-        .btn-main { background: #f59e0b; color: #1e293b; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .btn-main:hover { background: #d97706; color: white; }
-        .btn-add { background: #dc2626; color: white; border-radius: 6px; padding: 6px 12px; font-size: 0.85rem; border: none; cursor: pointer; font-weight: bold; }
+        .hero { 
+            text-align: center; 
+            padding: 5rem 1rem; 
+            background: linear-gradient(180deg, rgba(185, 28, 28, 0.85) 0%, rgba(127, 29, 29, 0.95) 100%), 
+                        url('https://images.unsplash.com/photo-1561758033-d89a9ad46330?auto=format&fit=crop&w=1200&q=80') center/cover;
+            color: white; 
+            box-shadow: inset 0 -10px 20px rgba(0,0,0,0.5);
+        }
+        .hero h1 { font-size: 2.8rem; margin-bottom: 0.5rem; font-weight: 900; text-shadow: 2px 2px 4px rgba(0,0,0,0.6); }
+        .hero p { font-size: 1.2rem; max-width: 650px; margin: 0 auto 1.5rem; opacity: 0.95; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
+        .location-badge { display: inline-block; background: #eab308; color: #0f172a; padding: 6px 16px; border-radius: 20px; font-weight: 800; font-size: 0.9rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        
+        .btn { padding: 0.8rem 1.8rem; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block; border: none; cursor: pointer; font-size: 0.95rem; transition: transform 0.2s, background-color 0.2s; }
+        .btn-main { background: #eab308; color: #0f172a; box-shadow: 0 4px 12px rgba(234, 179, 8, 0.4); }
+        .btn-main:hover { background: #ca8a04; color: white; transform: translateY(-2px); }
+        .btn-add { background: #dc2626; color: white; border-radius: 6px; padding: 8px 14px; font-size: 0.85rem; border: none; cursor: pointer; font-weight: bold; transition: background 0.2s; }
         .btn-add:hover { background: #991b1b; }
 
         .menu-container { padding: 3rem 5%; max-width: 1000px; margin: 0 auto; }
-        .section-title { text-align: center; margin-bottom: 2rem; font-size: 2rem; color: #7f1d1d; border-bottom: 2px solid #fde047; padding-bottom: 0.5rem; }
+        .section-title { text-align: center; margin-bottom: 2.5rem; font-size: 2.2rem; color: #fde047; text-transform: uppercase; letter-spacing: 1px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
         
-        .menu-category { margin-bottom: 2.5rem; background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid #fef08a; }
-        .category-title { font-size: 1.4rem; color: #b91c1c; margin-bottom: 1rem; }
+        .menu-category { 
+            margin-bottom: 2.5rem; 
+            background: rgba(255, 255, 255, 0.96); 
+            border-radius: 16px; 
+            padding: 1.8rem; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3); 
+            border-left: 6px solid #dc2626; 
+        }
+        .category-title { font-size: 1.5rem; color: #991b1b; margin-bottom: 1.2rem; font-weight: 800; display: flex; align-items: center; gap: 8px; }
         
         .menu-list { display: flex; flex-direction: column; gap: 0.8rem; }
-        .menu-item { display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 0; border-bottom: 1px dashed #e5e7eb; }
+        .menu-item { display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 0; border-bottom: 1px dashed #cbd5e1; }
         .menu-item:last-child { border-bottom: none; }
-        .item-name { font-weight: 600; color: #1f2937; }
-        .item-price { font-weight: 800; color: #dc2626; font-size: 1.1rem; margin-right: 1rem; }
+        .item-name { font-weight: 700; color: #0f172a; font-size: 1.05rem; }
+        .item-price { font-weight: 800; color: #dc2626; font-size: 1.15rem; margin-right: 1rem; }
         .item-right { display: flex; align-items: center; }
 
-        .cart-float-btn { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; border: none; border-radius: 50px; padding: 14px 24px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 100; font-size: 1rem; display: flex; align-items: center; gap: 10px; }
-        .cart-float-btn:hover { background: #128C7E; }
+        .cart-float-btn { position: fixed; bottom: 20px; right: 20px; background: #22c55e; color: white; border: none; border-radius: 50px; padding: 14px 24px; font-weight: bold; cursor: pointer; box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4); z-index: 100; font-size: 1rem; display: flex; align-items: center; gap: 10px; transition: transform 0.2s; }
+        .cart-float-btn:hover { transform: scale(1.05); background: #16a34a; }
         .cart-badge { background: #dc2626; color: white; border-radius: 50%; padding: 2px 8px; font-size: 0.85rem; }
 
-        .cart-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; padding: 15px; }
-        .cart-content { background: white; border-radius: 12px; width: 100%; max-width: 450px; max-height: 85vh; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
-        .cart-header { background: #dc2626; color: white; padding: 15px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
+        .cart-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); z-index: 1000; justify-content: center; align-items: center; padding: 15px; }
+        .cart-content { background: white; border-radius: 16px; width: 100%; max-width: 450px; max-height: 85vh; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .cart-header { background: #dc2626; color: white; padding: 16px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
         .cart-header button { background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
-        .cart-body { padding: 15px; overflow-y: auto; flex: 1; display: flex; flex-direction: column; gap: 12px; }
-        .cart-item-row { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #f3f4f6; padding-bottom: 8px; }
+        .cart-body { padding: 16px; overflow-y: auto; flex: 1; display: flex; flex-direction: column; gap: 12px; }
+        .cart-item-row { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #f1f5f9; padding-bottom: 8px; }
         .cart-item-controls { display: flex; align-items: center; gap: 6px; }
-        .btn-qty { background: #e5e7eb; border: none; width: 26px; height: 26px; border-radius: 4px; font-weight: bold; cursor: pointer; }
-        .cart-footer { padding: 15px; background: #fffde7; border-top: 1px solid #fef08a; display: flex; flex-direction: column; gap: 10px; }
-        .cart-total { font-weight: 800; font-size: 1.2rem; text-align: right; color: #7f1d1d; }
-        .btn-send-ws { background: #25D366; color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer; text-align: center; text-decoration: none; width: 100%; }
+        .btn-qty { background: #e2e8f0; border: none; width: 28px; height: 28px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+        .cart-footer { padding: 16px; background: #fefce8; border-top: 1px solid #fef08a; display: flex; flex-direction: column; gap: 10px; }
+        .cart-total { font-weight: 800; font-size: 1.25rem; text-align: right; color: #7f1d1d; }
+        .btn-send-ws { background: #22c55e; color: white; border: none; padding: 14px; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer; text-align: center; text-decoration: none; width: 100%; transition: background 0.2s; }
+        .btn-send-ws:hover { background: #16a34a; }
 
-        .contact-section { background: white; padding: 4rem 5%; text-align: center; border-top: 2px solid #fef08a; }
+        .contact-section { background: rgba(15, 23, 42, 0.95); padding: 4rem 5%; text-align: center; border-top: 2px solid #eab308; color: white; }
         .contact-container { max-width: 600px; margin: 0 auto; }
         .contact-info { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 1rem; align-items: center; }
-        .contact-item { display: flex; align-items: center; gap: 0.6rem; font-size: 1.1rem; text-decoration: none; color: #dc2626; font-weight: 600; padding: 10px 20px; border-radius: 8px; background: #fff5f5; width: 100%; justify-content: center; }
-        .location-box { margin-top: 1rem; padding: 15px; background: #fef08a; border-radius: 8px; font-weight: 600; color: #7f1d1d; }
+        .contact-item { display: flex; align-items: center; gap: 0.6rem; font-size: 1.1rem; text-decoration: none; color: #fde047; font-weight: 600; padding: 12px 20px; border-radius: 10px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); width: 100%; justify-content: center; transition: background 0.2s; }
+        .contact-item:hover { background: rgba(255,255,255,0.15); }
+        .location-box { margin-top: 1rem; padding: 15px; background: #eab308; border-radius: 10px; font-weight: 800; color: #0f172a; }
 
-        footer { text-align: center; padding: 2rem; background: #450a0a; color: #fca5a5; font-size: 0.9rem; }
+        footer { text-align: center; padding: 2rem; background: #090d16; color: #94a3b8; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05); }
     </style>
 </head>
 <body>
