@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Bendici&oacute;n de Dios | Valera, Los Sin Techos</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: system-ui, -apple-system, sans-serif; color: #2d3748; line-height: 1.6; background-color: #fefce8; padding-bottom: 80px; }
+        
+        /* Navegacion */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+        .logo { font-weight: 800; font-size: 1.4rem; color: #dc2626; letter-spacing: -0.5px; text-decoration: none; }
+        .logo span { font-size: 0.85rem; color: #d97706; font-weight: bold; display: block; margin-top: -4px; }
+        .nav-links a { margin-left: 1.5rem; text-decoration: none; color: #4a5568; font-weight: 600; transition: color 0.2s; }
+        .nav-links a:hover { color: #dc2626; }
+        
+        /* Hero Section */
+        .hero { text-align: center; padding: 4rem 1rem; background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); color: white; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; font-weight: 800; }
+        .hero p { font-size: 1.15rem; max-width: 650px; margin: 0 auto 1.5rem; opacity: 0.95; }
+        .location-badge { display: inline-block; background: #f59e0b; color: #1e293b; padding: 4px 12px; border-radius: 20px; font-weight: bold; font-size: 0.9rem; margin-bottom: 1rem; }
+        
+        /* Botones */
+        .btn { padding: 0.8rem 1.8rem; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block; transition: all 0.2s; border: none; cursor: pointer; font-size: 0.95rem; }
+        .btn-main { background: #f59e0b; color: #1e293b; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .btn-main:hover { background: #d97706; color: white; transform: translateY(-2px); }
+        .btn-order { background: #dc2626; color: white; border-radius: 6px; padding: 6px 12px; font-size: 0.85rem; }
+        .btn-order:hover { background: #991b1b; }
+
+        /* Contenedor del Menu */
+        .menu-container { padding: 3rem 5%; max-width: 1000px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 2rem; font-size: 2rem; color: #7f1d1d; border-bottom: 2px solid #fde047; padding-bottom: 0.5rem; }
+        
+        .menu-category { margin-bottom: 2.5rem; background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid #fef08a; }
+        .category-title { font-size: 1.4rem; color: #b91c1c; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+        
+        /* Tabla/Lista de Precios */
+        .menu-list { display: flex; flex-direction: column; gap: 0.8rem; }
+        .menu-item { display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 0; border-bottom: 1px dashed #e5e7eb; }
+        .menu-item:last-child { border-bottom: none; }
+        .item-name { font-weight: 600; color: #1f2937; }
+        .item-price { font-weight: 800; color: #dc2626; font-size: 1.1rem; margin-right: 1rem; }
+        .item-right { display: flex; align-items: center; }
+
+        /* Contacto y Ubicacion */
+        .contact-section { background: white; padding: 4rem 5%; text-align: center; border-top: 2px solid #fef08a; }
+        .contact-container { max-width: 600px; margin: 0 auto; }
+        .contact-info { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 1rem; align-items: center; }
+        .contact-item { display: flex; align-items: center; gap: 0.6rem; font-size: 1.1rem; text-decoration: none; color: #dc2626; font-weight: 600; padding: 10px 20px; border-radius: 8px; background: #fff5f5; width: 100%; justify-content: center; }
+        .contact-item:hover { background: #ffe4e4; }
+        .location-box { margin-top: 1rem; padding: 15px; background: #fef08a; border-radius: 8px; font-weight: 600; color: #7f1d1d; }
+
+        /* Footer */
+        footer { text-align: center; padding: 2rem; background: #450a0a; color: #fca5a5; font-size: 0.9rem; }
+
+        /* WhatsApp Flotante (Lado Izquierdo) */
+        .whatsapp-float { position: fixed; bottom: 20px; left: 20px; background-color: #25D366; color: white; border-radius: 50px; padding: 12px 20px; font-weight: bold; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 100; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
+        .whatsapp-float:hover { background-color: #128C7E; }
+
+        /* Widget del Chat IA (Lado Derecho) */
+        .ai-chat-btn { position: fixed; bottom: 20px; right: 20px; background: #dc2626; color: white; border: none; border-radius: 50px; padding: 14px 22px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 100; font-size: 0.95rem; }
+        .ai-chat-btn:hover { background: #b91c1c; }
+
+        .chat-window { display: none; position: fixed; bottom: 80px; right: 20px; width: 340px; height: 420px; background: white; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.25); border: 1px solid #fde047; flex-direction: column; z-index: 101; overflow: hidden; }
+        .chat-header { background: #dc2626; color: white; padding: 12px 15px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
+        .chat-header button { background: none; border: none; color: white; font-size: 1.2rem; cursor: pointer; }
+        .chat-body { flex: 1; padding: 12px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem; background: #fffde7; }
+        .chat-msg { padding: 8px 12px; border-radius: 12px; max-width: 85%; }
+        .msg-ai { background: #fef08a; color: #7f1d1d; align-self: flex-start; border-bottom-left-radius: 2px; }
+        .msg-user { background: #dc2626; color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
+        .chat-footer { display: flex; padding: 8px; background: white; border-top: 1px solid #e5e7eb; }
+        .chat-footer input { flex: 1; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; outline: none; }
+        .chat-footer button { background: #dc2626; color: white; border: none; padding: 8px 12px; margin-left: 6px; border-radius: 6px; cursor: pointer; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <!-- WhatsApp Flotante -->
+    <a href="https://wa.me/584264408507?text=Hola,%20quisiera%20hacer%20un%20pedido%20en%20La%20Bendici%C3%B3n%20de%20Dios%20(Valera)" class="whatsapp-float" target="_blank">
+        &#128172; Pedir por WhatsApp
+    </a>
+
+    <!-- Boton y Ventana de Asistente IA -->
+    <button class="ai-chat-btn" onclick="toggleChat()">&#129302; Preguntar a la IA (En desarrollo...)</button>
+    
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <span>&#129302; Asistente La Bendici&oacute;n</span>
+            <button onclick="toggleChat()">&times;</button>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-msg msg-ai">&iexcl;Hola! Esta funci&oacute;n est&aacute; en desarrollo, pero puedes probar hacer preguntas sobre el men&uacute; o los precios.</div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="userInput" placeholder="Escribe tu duda..." onkeydown="if(event.key==='Enter') sendMessage()">
+            <button onclick="sendMessage()">Enviar</button>
+        </div>
+    </div>
+
+    <!-- Navegacion -->
+    <nav>
+        <a href="#inicio" class="logo">
+            La Bendici&oacute;n de Dios
+            <span>LeoAlex - Valera</span>
+        </a>
+        <div class="nav-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#menu">Men&uacute;</a>
+            <a href="#contacto">Ubicaci&oacute;n</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="inicio">
+        <span class="location-badge">&#128205; Valera - Sector Los Sin Techos</span>
+        <h1>&#127789; La Bendici&oacute;n de Dios</h1>
+        <p>Los mejores perros calientes, hamburguesas, pepitos y shawarmas. Aceptamos punto de venta, pago m&oacute;vil y efectivo. &iexcl;Haz tu pedido al instante!</p>
+        <a href="#menu" class="btn btn-main">Ver Men&uacute; de Precios</a>
+    </section>
+
+    <!-- Menu de Productos -->
+    <section class="menu-container" id="menu">
+        <h2 class="section-title">Men&uacute; &amp; Precios</h2>
+
+        <!-- Perros Calientes -->
+        <div class="menu-category">
+            <h3 class="category-title">&#127789; Perros Calientes</h3>
+            <div class="menu-list">
+                <div class="menu-item">
+                    <span class="item-name">2 Perros Calientes Grandes</span>
+                    <div class="item-right">
+                        <span class="item-price">$2.50</span>
+                        <a href="https://wa.me/584264408507?text=Quiero%20ordenar:%202%20Perros%20Calientes%20Grandes" class="btn btn-order" target="_blank">Pedir</a>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <span class="item-name">Perro Caliente Especial</span>
+                    <div class="item-right">
+                        <span class="item-price">$2.30 c/u</span>
+                        <a href="https://wa.me/584264408507?text=Quiero%20ordenar:%20Perro%20Caliente%20Especial" class="btn btn-order" target="_blank">Pedir</a>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <span class="item-name">Perro Caliente Pollo o Carne</span>
+                    <div class="item-right">
+                        <span class="item-price">$3.00</span>
+                        <a href="https://wa.me/584264408507?text=Quiero%20ordenar:%20Perro%20Caliente%20de%20Pollo/Carne" class="btn btn-order" target="_blank">Pedir</a>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <span class="item-name">Perro Caliente Mixto</span>
+                    <div class="item-right">
+                        <span class="item-price">$5.00</span>
+                        <a href="https://wa.me/584264408507?text=Quiero%20ordenar:%20Perro%20Caliente%20Mixto" class="btn btn-order" target="_blank">Pedir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hamburguesas -->
+        <div class="menu-category">
+            <h3 class="category-title">&#127828; Hamburguesas</h3>
+            <div class="menu-list">
+                <div class="menu-item">
+                    <span class="item-name">Hamburguesa Sencilla</span>
+                    <div class="item-right">
+                        <span class="item-price">$3.50</span>
+                        <a href="https://wa.me/584264408507?text=Quiero%20ordenar:%20Hamburguesa%20Sencilla" class="btn btn-order" target="_blank">Pedir</a>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <span class="item-name">Hamburguesa Pollo / Carne</span>
+                    <div class="item-right">
+                        <span class="item-price">$6.00</span>
+                        <a href="https://wa.me/584264408507?text=Quiero%20ordenar:%20Hamburguesa%20de%20Pollo/Carne" class="btn btn-order" target="_blank">Pedir</a>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <span class="item-name">Hamburguesa Mixta</span>
+                    <div class="item-right">
+                        <span class="item-price">$8.00</span>
+                        <a href="https://wa.me/584264408507?text=Quiero%20ordenar:%20Hamburguesa%20Mixta" class="btn btn-order" target="_blank">Pedir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Whoppers -->
+        <div class="menu-category">
+            <h3 class="category-title">&#127828; Whoppers</h3>
+            <div class="menu-list">
+                <div class="menu-item">
+                    <span class="item-name">Whopper (1 unidad)</span>
+                    <div class="item-right">
+                        <span class="item-price">$1.95</span>
+                        <a href="https://wa.me/584264408507?text=Quiero%20ordenar:%201%20Whopper" class="btn btn-order" target="_blank">Pedir</a>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <span class="item-name">Whoppers (Promoci&oacute;n 2x)</span>
+                    <div class="item-right">
+                        <span class="item-price">$3.50</span>
+                        <a href="https://wa.me/584264408507?text=Quiero%20ordenar:%20Promoci%C3%B3n%202%20Whoppers" class="btn btn-order" target="_blank">Pedir</a>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <span class="item-name">Whopper Especial / Pollo / Carne</span>
+                    <div class="item-right">
+                        <span class="item-price">$2.50</span>
+                        <a href="https://wa.me/584264408507?text=Quiero%20ordenar:%20Whopper%20Especial/Pollo/Carne" class="btn btn-order" target="_blank">Pedir</a>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <span class="item-name">Whopper Mixto</span>
+                    <div class="item-right">
+                        <span class="item-price">$4.50</span>
+                        <a href="https://wa.me/584264408507?text=Quiero%20ordenar:%20Whopper%20Mixto" class="btn btn-order" target="_blank">Pedir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Especialidades y Mixtos -->
+        <div class="menu-category">
+            <h3 class="category-title">&#127855; Pepitos y Shawarmas</h3>
+            <div class="menu-list">
+                <div class="menu-item">
+                    <span class="item-name">Shawarma Mixto</span>
+                    <div class="item-right">
+                        <span class="item-price">$8.00</span>
+                        <a href="https://wa.me/584264408507?text=Quiero%20ordenar:%20Shawarma%20Mixto" class="btn btn-order" target="_blank">Pedir</a>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <span class="item-name">Pepito Mixto</span>
+                    <div class="item-right">
+                        <span class="item-price">$12.00</span>
+                        <a href="https://wa.me/584264408507?text=Quiero%20ordenar:%20Pepito%20Mixto" class="btn btn-order" target="_blank">Pedir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Contacto y Ubicacion -->
+    <section class="contact-section" id="contacto">
+        <div class="contact-container">
+            <h2>Ubicaci&oacute;n y Contacto Directo</h2>
+            <div class="location-box">
+                &#128205; Sector Los Sin Techos, Valera, Edo. Trujillo.
+            </div>
+            
+            <div class="contact-info">
+                <a class="contact-item" href="https://maps.app.goo.gl/aN3qX5oTNC7WyviV6" target="_blank">
+                    &#128506;&#65039; Ver en Google Maps
+                </a>
+                <a class="contact-item" href="https://wa.me/584264408507" target="_blank">
+                    &#128222; WhatsApp: +58 426-4408507
+                </a>
+                <a class="contact-item" href="mailto:Leonardo020911@gmail.com">
+                    &#9993; Leonardo020911@gmail.com
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 La Bendici&oacute;n de Dios - LeoAlex (Valera, Los Sin Techos). Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- LOGICA DE JAVASCRIPT CON DENTRO DE ETIQUETAS SCRIPT -->
+    <script charset="UTF-8">
+        const API_KEY = "AQ.Ab8RN6LB6Ekq7rqlUMGfCFkHzzXWvkeC13bWDTHiFmRdxfAsOQ"; 
+
+        const SYSTEM_INSTRUCTION = `Eres el asistente virtual atento de "La Bendicion de Dios", comida rapida en Valera, Sector Los Sin Techos (Trujillo, Venezuela).
+        Lista de precios:
+        - Perros Calientes: 2 Grandes por $2.50 | Especial $2.30 c/u | Pollo o Carne $3.00 | Mixto $5.00
+        - Hamburguesas: Sencilla $3.50 | Pollo/Carne $6.00 | Mixta $8.00
+        - Whoppers: 1x $1.95 | Promo 2x $3.50 | Especial/Pollo/Carne $2.50 | Mixto $4.50
+        - Especiales: Shawarma Mixto $8.00 | Pepito Mixto $12.00
+        Pagos: Punto de venta, Pago movil y Efectivo.
+        Responde conciso, amable y en tono venezolano informal. Para tomar la orden, remitelos a presionar el boton de WhatsApp.`;
+
+        function toggleChat() {
+            const chat = document.getElementById("chatWindow");
+            chat.style.display = chat.style.display === "flex" ? "none" : "flex";
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById("userInput");
+            const chatBody = document.getElementById("chatBody");
+            const text = input.value.trim();
+            
+            if (!text) return;
+
+            const userDiv = document.createElement("div");
+            userDiv.className = "chat-msg msg-user";
+            userDiv.textContent = text;
+            chatBody.appendChild(userDiv);
+            
+            input.value = "";
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            const loadingMsg = document.createElement("div");
+            loadingMsg.className = "chat-msg msg-ai";
+            loadingMsg.textContent = "Pensando respuesta...";
+            chatBody.appendChild(loadingMsg);
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        contents: [
+                            { 
+                                role: "user", 
+                                parts: [{ text: `${SYSTEM_INSTRUCTION}\n\nConsulta del cliente: ${text}` }] 
+                            }
+                        ]
+                    })
+                });
+
+                if (!response.ok) {
+                    const errData = await response.json();
+                    console.error("Detalle del error de la API:", errData);
+                    throw new Error(`Error HTTP: ${response.status}`);
+                }
+
+                const data = await response.json();
+                const aiReply = data.candidates[0].content.parts[0].text;
+                loadingMsg.textContent = aiReply;
+            } catch (error) {
+                console.error(error);
+                loadingMsg.textContent = "Hubo un error al responder. Por favor contactanos via WhatsApp.";
+            }
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+    </script>
+</body>
+</html>
